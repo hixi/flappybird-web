@@ -248,7 +248,8 @@ config = {
 
 </script>
 
-    <title>flappybird-web</title>
+    <title>FlappyBird - Web Edition</title>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -265,6 +266,47 @@ config = {
     <link rel="icon" type="image/png" href="favicon.png" sizes="16x16">
 
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        #game-container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        #canvas {
+            border: 2px solid #333;
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+
+        .instructions {
+            text-align: center;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .loading {
+            text-align: center;
+            color: #333;
+            font-size: 1.2em;
+            padding: 20px;
+        }
         #status {
             display: inline-block;
             vertical-align: top;
@@ -356,11 +398,14 @@ config = {
     </div>
 
 
-    <canvas class="emscripten" id="canvas"
-width="1px"
-height="1px"
-    oncontextmenu="event.preventDefault()" tabindex=1>
-    </canvas>
+    <div id="game-container">
+        <h1>🐦 FlappyBird - Web Edition</h1>
+        <div id="loading" class="loading">Spiel wird geladen...</div>
+        <canvas id="canvas" style="display: none;"></canvas>
+        <div class="instructions" style="display: none;">
+            Steuerung: Leertaste oder Mausklick zum Springen
+        </div>
+    </div>
 
     <div id=html></div>
 
@@ -487,3 +532,4 @@ frameborder="1"
 
 </body>
 </html>
+
